@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/*COLORS*/
+:root {
+    --white: #fff;
+    --red-color: #C12A33;
+    --grey-light: #B5B5C7;
+    --grey-more-light: #F5F8FA;
+}
+
+/*FONT-WEIGHTS*/
+:root {
+    --light: 300;
+    --regular: 400;
+    --medium: 500;
+    --bold: 700;
+}
+
+/*LETTER COLOR*/
+.l-red {
+    color: var(--red-color);
+}
+
+.l-grey-light {
+    color: var(--grey-light);
+}
+
+/*TITLES*/
+.title-h1 {
+    font-size: 30px;
+    font-weight: var(--medium);
+}
+
+.title-h2 {
+    font-size: 24px;
+    font-weight: var(--medium);
+}
+
+.title-h4 {
+    font-size: 16px;
+    font-weight: var(--medium);
+}
+
+/*OTHERS*/
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--red-color);
+}
+
+/*INPUTS*/
+.i-text-normal {
+    background: var(--grey-more-light);
+    border: none;
+    height: 57px;
+    border-radius: 10px;
+}
+
+/*BUTTONS*/
+
+
