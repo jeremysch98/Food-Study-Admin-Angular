@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   Submit(loginForm: any) {
     if (this.email.length == 0 || this.password.length == 0) {
-      Swal.fire("", "Complete los campos necesario. ", "info");
+      Swal.fire("", "Complete los campos necesarios. ", "info");
     } else {
       this.authService.validateUser(this.email, this.password).subscribe(r => {
         if (r.auth) {
