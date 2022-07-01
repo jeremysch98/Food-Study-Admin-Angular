@@ -37,8 +37,220 @@
           </div>
         </nav>
       </div>
-      <div class="row content">
-        DASHBOARD PANEL
+      <div class="row content p-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card card-indicator">
+                <div class="row">
+                  <div class="col-md-8 offset-md-2">
+                    <div class="row mt-4 text-center">
+                      <div class="col-3">
+                        <p class="soles">S/.</p>
+                      </div>
+                      <div class="col-9">
+                        <p class="mount">{{saleAmount}}</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 offset-md-3">
+                        <div class="card bg-indicator-percentage text-center align-middle">
+                          <p class="indicator-percentage">{{salePercentage}}%</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="indicator-description text-center">
+                        VENTAS DEL MES
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card card-indicator">
+                <div class="indicator-description text-center">
+                  CALORÍAS PROMEDIO
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card card-indicator">
+                <div class="row">
+                  <div class="col-md-8 offset-md-2">
+                    <div class="row mt-4 text-center">
+                      <p class="mount">{{ordernAmount}}</p>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 offset-md-3">
+                        <div class="card bg-indicator-order text-center align-middle">
+                          <p class="indicator-percentage">{{orderPercentage}}%</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="indicator-description text-center">
+                        ÓRDENES DEL MES
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <!-- VENTAS POR PRODUCTO -->
+            <div class="col-5">
+              <div class="card card-indicator-table">
+                <div class="row p-3 mt-2">
+                  <div class="col-5">
+                    <p class="title-h4">Ventas por producto</p>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <div class="search-filter">
+                        <input type="text" class="form-control input-search" placeholder="Buscar"
+                          [(ngModel)]="gridFilterVxP">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <a type="button" data-bs-toggle="modal" class="btn btn-add form-control"><i
+                            class="fa-solid fa-filter"></i>
+                          Fecha</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row p-3">
+                  <div class="col-12">
+                    <table class="table table-responsive text-center">
+                      <thead>
+                        <tr class="align-middle">
+                          <th>
+                            <p class="header-table">PRODUCTO</p>
+                          </th>
+                          <th>
+                            <p class="header-table">TOTAL</p>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="let d of dataVxP | filter:gridFilterVxP | paginates:page_size_VxP:page_number_VxP | paginate: {id: 'listing_pagination-vxp',itemsPerPage: page_size_VxP, currentPage: page_number_VxP, totalItems: totalRecordsVxP}"
+                          class="data-table align-middle">
+                          <td>{{ d.producto }}</td>
+                          <td>{{ d.cantidad }}</td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+
+                    <div class="foote-table mt-3">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="input-group">
+                            <select class="form-control-pager form-control-sm page-size-select text-center"
+                              [(ngModel)]="page_size_VxP">
+                              <option *ngFor="let option of pageLimitOptions" [value]="option.value"
+                                [selected]="option.value == page_size_VxP">
+                                {{ option.value }}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-6 text-end">
+                          <pagination-controls class="my-pagination" id="listing_pagination-vxp"
+                            (pageChange)="page_number_VxP = $event" previousLabel="" nextLabel=""></pagination-controls>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- VENTAS POR CATEGORÍA -->
+            <div class="col-7">
+              <div class="card card-indicator-table">
+                <div class="row p-3 mt-2">
+                  <div class="col-5">
+                    <p class="title-h4">Ventas por categoría</p>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <div class="search-filter">
+                        <input type="text" class="form-control input-search" placeholder="Buscar"
+                          [(ngModel)]="gridFilterVxC">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <a type="button" data-bs-toggle="modal" class="btn btn-add form-control"><i
+                            class="fa-solid fa-filter"></i>
+                          Fecha</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row p-3">
+                  <div class="col-12">
+                    <table class="table table-responsive text-center">
+                      <thead>
+                        <tr class="align-middle">
+                          <th>
+                            <p class="header-table">PRODUCTO</p>
+                          </th>
+                          <th>
+                            <p class="header-table">CANTIDAD</p>
+                          </th>
+                          <th>
+                            <p class="header-table">TOTAL (S/.)</p>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="let d of dataVxC | filter:gridFilterVxC | paginates:page_size_VxC:page_number_VxC | paginate: {id: 'listing_pagination-vxc',itemsPerPage: page_size_VxC, currentPage: page_number_VxC, totalItems: totalRecordsVxC}"
+                          class="data-table align-middle">
+                          <td>{{ d.categoria }}</td>
+                          <td>{{ d.cantidad }}</td>
+                          <td>{{ d.total }}</td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                    <div class="foote-table mt-3">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="input-group">
+                            <select class="form-control-pager form-control-sm page-size-select text-center"
+                              [(ngModel)]="page_size_VxC">
+                              <option *ngFor="let option of pageLimitOptions" [value]="option.value"
+                                [selected]="option.value == page_size_VxC">
+                                {{ option.value }}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-6 text-end">
+                          <pagination-controls class="my-pagination" id="listing_pagination-vxc"
+                            (pageChange)="page_number_VxC = $event" previousLabel="" nextLabel=""></pagination-controls>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

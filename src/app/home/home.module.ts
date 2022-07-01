@@ -30,7 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
       }
     }),
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ]
 })
 export class HomeModule { }
