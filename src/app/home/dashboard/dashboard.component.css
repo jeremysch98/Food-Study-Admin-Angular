@@ -47,3 +47,10 @@
 /* .card-indicator-table {
     height: 550px;
 } */
+
+/*Chart*/
+.card-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

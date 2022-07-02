@@ -15,6 +15,12 @@ export class DashboardComponent implements OnInit {
   //ventas del mes
   ordernAmount: number = 345;
   orderPercentage: number = 1.2;
+  
+  //ventas diarias
+  dataChart: any;
+  showXAxis = true;
+  showGridLines = false;
+  view: [number, number] = [500, 160];
 
   //ventas por producto
   gridFilterVxP: string = "";
@@ -31,11 +37,42 @@ export class DashboardComponent implements OnInit {
   dataVxC: any;
 
   public readonly pageLimitOptions = [{ value: 5 }, { value: 7 }];
+  
   constructor(private router: Router,) { }
 
   ngOnInit(): void {
     this.GetRowsVxP();
     this.GetRowsVxC();
+    this.GetDataChart();
+  }
+
+  GetDataChart() {
+    this.dataChart = [
+      {
+        "name": "Lunes",
+        "value": 322
+      },
+      {
+        "name": "Martes",
+        "value": 213
+      },
+      {
+        "name": "Miércoles",
+        "value": 750
+      },
+      {
+        "name": "Jueves",
+        "value": 202
+      },
+      {
+        "name": "Viernes",
+        "value": 123
+      },
+      {
+        "name": "Sábado",
+        "value": 457
+      }
+    ];
   }
 
   GetRowsVxP() {

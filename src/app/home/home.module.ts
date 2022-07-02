@@ -11,6 +11,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { PaginatePipe } from '../pipes/paginate.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     }),
     Ng2SearchPipeModule,
     NgxPaginationModule,
+    NgxChartsModule
   ]
 })
 export class HomeModule { }

@@ -40,6 +40,7 @@
       <div class="row content p-3">
         <div class="container">
           <div class="row">
+            <!-- VENTAS DEL MES -->
             <div class="col-md-3">
               <div class="card card-indicator">
                 <div class="row">
@@ -68,13 +69,20 @@
                 </div>
               </div>
             </div>
+
+            <!-- VENTAS DE LA SEMANA -->
             <div class="col-md-6">
-              <div class="card card-indicator">
+              <div class="card card-indicator card-chart">
                 <div class="indicator-description text-center">
-                  CALORÍAS PROMEDIO
+                  VENTAS DE LA SEMANA (S/.)
                 </div>
+                <ngx-charts-bar-vertical [view]="view" scheme="cool" [results]="dataChart" [xAxis]="showXAxis"
+                  [showGridLines]="showGridLines">
+                </ngx-charts-bar-vertical>
               </div>
             </div>
+
+            <!-- ÓRDENES DEL MES -->
             <div class="col-md-3">
               <div class="card card-indicator">
                 <div class="row">
@@ -173,6 +181,7 @@
                 </div>
               </div>
             </div>
+
             <!-- VENTAS POR CATEGORÍA -->
             <div class="col-7">
               <div class="card card-indicator-table">
